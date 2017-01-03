@@ -71,7 +71,7 @@
   </main>
  
   <footer class="footer">
-	<a href="test" class="btn btn-md my-btn-border animsition-link" 
+	<a href="showAllVideos" class="btn btn-md my-btn-border animsition-link" 
 		data-animsition-out="fade-out-up" type="button">
 	   <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
 	</a>

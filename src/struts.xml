@@ -16,6 +16,10 @@
             <result name="success" type="json"></result>
             <result name="error" type="json"></result>
    		</action>
+   		
+   		<action name="showAllVideos" class="" method="">
+            <result name="success">/WEB-INF/content/test.jsp</result>
+   		</action>
 	   	
 	   	<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
