@@ -5,7 +5,6 @@ html {
 
 
 body {
-	font-family: "Microsoft YaHei", sans-serif;
 	background: #333 url(../images/1.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -15,10 +14,26 @@ body {
 	font-weight: 400;
 	font-size: 14px;
 	letter-spacing: 0.04em;
+	text-align: center;
 }
 
 a, a:hover {
 	color: #ff8;	
+}
+
+/* 保证footer在页面底部而且居中*/
+footer {
+    padding: 0 100px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+header {
+    padding: 0 100px;
+    width: 100%;
+    position: absolute;
+    top: 0;
 }
 
 
@@ -26,11 +41,19 @@ main {
 	margin-top: 140px;
 	padding: 100px 0 100px;
 	position: relative;
+	padding-bottom:30px;
+	overflow:hidden;
 }
 
+.main-2 {
+	margin-top: 70px;
+	position: relative;
+	padding-bottom:30px;
+	overflow:hidden;
+}
 .overlay {
 	background-color: #111;
-	opacity: 0.4;
+	opacity: .3;
 	/* position: absolute; */
 	position: fixed;
 	-webkit-transform: translateZ(0);

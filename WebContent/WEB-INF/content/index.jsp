@@ -13,12 +13,15 @@
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<link rel="stylesheet" type="text/css"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> 
-  	<link rel="stylesheet" type="text/css" href="assets/css/index.css"> 
+  	<link rel="stylesheet" type="text/css" href="assets/css/animsition.min.css">
   	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  	<link rel="stylesheet" type="text/css" href="assets/css/index.css"> 
   	
 </head>
 <body>
+  
   <div class="overlay"></div>
+
   <nav class="navbar navbar-default navbar-fixed-top my-navbar" role="navigation">
     <div class="container-fluid container my-nav">
       <div class="navbar-header">
@@ -36,49 +39,46 @@
       </div>
     </div>
   </nav>
-
+	
+  <div class="animsition">
   <main>
     <div class="container">
       <div class="row center-content">
-       
-            <div id="frame">
-				<div class="resumable-error">
-			        Your browser, unfortunately, is not supported by Resumable.js. 
-			        The library requires support for <a href="http://www.w3.org/TR/FileAPI/">the HTML5 File API</a> 
-			        along with <a href="http://www.w3.org/TR/FileAPI/#normalization-of-params">file slicing</a>.
-			      </div>
-			
-			    <div class="resumable-drop" ondragenter="jQuery(this).addClass('resumable-dragover');" 
-			    	ondragend="jQuery(this).removeClass('resumable-dragover');" 
-			    	ondrop="jQuery(this).removeClass('resumable-dragover');">
-			        Drop video files here to upload or 
-			        <a class="resumable-browse">select from your computers</a>
-			    </div>
-			      
-			    <div class="resumable-progress">
-			    	<table>
-			        	<tr>
-			            	<td width="100%"><div class="progress-container"><div class="progress-bar"></div></div></td>
-			            	<td class="progress-text" nowrap="nowrap"></td>
-			        	</tr>
-			    	</table>
-			    </div>
-			    <ul class="resumable-list"></ul>
-		      </div>
-          
-          <div class="row">
-	        <div class="col-md-12">
-	          <a class="btn my-btn my-btn-border" href="#" type="button">
-	            <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
-	          </a>
-	        </div>
+        <div id="frame">
+		  <div class="resumable-error">
+			   Your browser, unfortunately, is not supported by Resumable.js. 
+			   The library requires support for <a href="http://www.w3.org/TR/FileAPI/">the HTML5 File API</a> 
+			   along with <a href="http://www.w3.org/TR/FileAPI/#normalization-of-params">file slicing</a>.
+		  </div>
+		  <div class="resumable-drop" ondragenter="jQuery(this).addClass('resumable-dragover');" 
+			   ondragend="jQuery(this).removeClass('resumable-dragover');" 
+			   ondrop="jQuery(this).removeClass('resumable-dragover');">
+			   Drop video files here to upload or 
+			   <a class="resumable-browse">select from your computers</a>
+		  </div>      
+		  <div class="resumable-progress">
+			<table>
+			  <tr>
+			    <td width="100%"><div class="progress-container"><div class="progress-bar"></div></div></td>
+			    <td class="progress-text" nowrap="nowrap"></td>
+			  </tr>
+			</table>
 	      </div>
-        </div>
+		  <ul class="resumable-list"></ul>
+		</div>
       </div>
-      
- 	</main>
+    </div>    
+  </main>
  
- <div class="modal fade" style="position: fixed;" id="myModal"
+  <footer class="footer">
+	<a href="test" class="btn btn-md my-btn-border animsition-link" 
+		data-animsition-out="fade-out-up" type="button">
+	   <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
+	</a>
+  </footer>
+  </div>
+ 
+  <div class="modal fade" style="position: fixed;" id="myModal"
 			tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 			aria-hidden="true">
 	<div class="modal-dialog">
@@ -90,8 +90,7 @@
 		</div>
 		<div class="modal-body">
 		  <video id="demo" controls="controls" loop="loop" preload="auto" width="100%" height="100%" poster="assets/images/#">
-		     <source src="#" type="video/mp4">
-				您的浏览器不支持该格式，推荐使用chrome浏览器
+		     <source src="#" type="video/mp4">您的浏览器不支持该格式，推荐使用chrome浏览器
 	      </video>
 		</div>
 		<div class="modal-footer">
@@ -100,10 +99,13 @@
 	  </div>
 	</div>	
   </div>
+  
+ 
  
   <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/js/resumable.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.animsition.min.js"></script>
   
   <script>
 		var r = new Resumable({
@@ -182,7 +184,35 @@
 		
 		//模态框初始化时不会显示，且禁用点击空白页面或escape关闭模态框
 		$('#myModal').modal({show:false, keyboard: false, backdrop:false});
-
+		
+		$(document).ready(function() {
+			   
+			  $(".animsition").animsition({
+			   
+			    inClass               :   'fade-in',
+			    outClass              :   'fade-out',
+			    inDuration            :    1500,
+			    outDuration           :    800,
+			    linkElement           :   '.animsition-link',
+			    // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+			    loading               :    true,
+			    loadingParentElement  :   'body', //animsition wrapper element
+			    loadingClass          :   'animsition-loading',
+			    unSupportCss          : [ 'animation-duration',
+			                              '-webkit-animation-duration',
+			                              '-o-animation-duration'
+			                            ],
+			    //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			    //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			     
+			    overlay               :   false,
+			     
+			    overlayClass          :   'animsition-overlay-slide',
+			    overlayParentElement  :   'body'
+			  });
+			});            
+		
+		
   	</script>
 </body>
 </html>
